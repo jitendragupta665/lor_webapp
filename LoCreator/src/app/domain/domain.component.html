@@ -1,0 +1,28 @@
+<html>
+    <head>
+      <title>Task</title>
+
+    </head>
+    <body >
+<div class="container"  >
+<form #dominForm = "ngForm" (ngSubmit)="onSubmit()"  method="post">
+<fieldset>
+<label for="domain_id">Domain:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="domain_id" name ="domain" [(ngModel)]="domainModel.domainName" class="form-control" placeholder="Enter Domain">
+</div>
+</div>
+<div class="row">
+<div class="col-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  <div class="col-2">
+  <a href="field" class="btn btn-primary btn-block">Add Field</a>
+  </div>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>

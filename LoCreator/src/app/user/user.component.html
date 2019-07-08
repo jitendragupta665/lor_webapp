@@ -1,0 +1,11 @@
+
+<body>
+<div *ngFor = "let user of users" name= "user"   ngDefaultControl >
+  <div class="card">
+    <div class="card-body">
+      <a  class="card-title" [routerLink]="['/userdetails', user.id]" class="nav-link btn btn-light btn-block" routerLinkActive="active"><h5>{{user.username}}</h5> </a>
+      <p class="card-text" ></p>
+    </div>
+  </div>
+  </div>
+  </body>

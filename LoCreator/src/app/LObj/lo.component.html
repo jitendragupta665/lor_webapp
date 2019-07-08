@@ -1,0 +1,119 @@
+<html>
+    <head>
+      <title>Task</title>
+    </head>
+    <body >
+      <div class="container-fluid">
+<form #loForm = "ngForm" (ngSubmit)="onSubmit()"  method="post">
+  <fieldset>
+    <div class="align-items-center">
+    <label for="lo_id">Learning Objective:</label>
+    <div class = "form-row align-items-center">
+    <div class="form-group col-8 ">
+          <input type="text" id="lo_id" name ="lo" [(ngModel)]="loModel.lo" class="form-control" placeholder="Enter learning objective">
+    </div>
+  </div>
+</div>
+    <div class="row">
+    <div class="col">
+      <label for="lo_id">Taxonomy:</label>
+          <div class = "form-row">
+                <div class="form-group col-8" >
+                    <select class="form-control" id="taxo_id" name="taxonomy" (change)="onChangeTaxonomy($event.target.value)" >
+                      <option value="" select="selected">Select Taxonomy</option>
+                      <option  *ngFor = "let taxonomy of taxonomies"  [value]="taxonomy.taxoId" name= "taxos"   ngDefaultControl >{{taxonomy.taxoName}}</option>
+                    </select>
+
+                </div>
+                <div class="col-2" *ngIf="isRole()">
+                    <a href="taxonomy" class="btn btn-primary btn-block">Add Taxonomy</a>
+                </div>
+          </div>
+
+      <label for="level_id">Level:</label>
+      <div class = "form-row">
+        <div class="form-group col-8" >
+      <select id="level_id"  (change)="onChangeLevel($event.target.value)" class="form-control" >
+        <option value="" select="selected">Select Level</option>
+        <option  *ngFor = "let level of levels"  [value]="level.levelId" name= "levels"   ngDefaultControl >{{level.levelName}}</option>
+      </select>
+    </div>
+    <div class="col-2" *ngIf="isRole()">
+    <a href="level" class="btn btn-primary btn-block">Add Level</a>
+  </div>
+      </div>
+      <label for="verb_id">Verb:</label>
+      <div class = "form-row">
+        <div class="form-group col-8" >
+      <select name="verbid" id="verb_id" class="form-control" [(ngModel)]="verbid">
+        <option value="" select="selected">Select Verb</option>
+        <option    *ngFor = "let verb of verbs"  name= "verb" [value]="verb.verbId"  >{{ verb.verbName }}</option>
+      </select>
+        </div>
+          <div class="col-2" *ngIf="isRole()">
+              <a href="verb" class="btn btn-primary btn-block">Add Verb</a>
+          </div>
+    </div>
+
+</div>
+  <div class="col">
+  <label for="domain_id">Domain:</label>
+      <div class = "form-row">
+            <div class="form-group col-8" >
+                <select class="form-control" id="domain_id" name="domain" (change)="onChangeDomain($event.target.value)" >
+                <option value="" select="selected">Select Domain</option>
+                <option  *ngFor = "let domain of domains"  [value]="domain.domainId" name= "domains"   ngDefaultControl >{{domain.domainName}}</option>
+                </select>
+            </div>
+            <div class="col-2" *ngIf="isRole()">
+                <a href="domain" class="btn btn-primary btn-block">Add Domain</a>
+            </div>
+      </div>
+
+  <label for="field_id">Field:</label>
+  <div class = "form-row">
+    <div class="form-group col-8" >
+  <select id="field_id"  class="form-control" (change)="onChangeField($event.target.value)">
+    <option value="" select="selected">Select Field</option>
+    <option  *ngFor = "let field of fields"  [value]="field.fieldId" name= "field"   ngDefaultControl >{{field.fieldName}}</option>
+  </select>
+</div>
+<div class="col-2" *ngIf="isRole()">
+<a href="field" class="btn btn-primary btn-block">Add Field</a>
+</div>
+  </div>
+
+  <label for="subject_id">Subject:</label>
+  <div class = "form-row">
+    <div class="form-group col-8" >
+  <select id="subject_id" class="form-control" (change)="onChangeSubject($event.target.value)">
+    <option value="" select = "selected">Select Subject</option>
+    <option   *ngFor = "let subject of subjects"  [value]="subject.subjectId"  name= "subject" ngDefaultControl >{{ subject.subjectName }}</option>
+  </select>
+    </div>
+      <div class="col-2" *ngIf="isRole()">
+          <a href="subject" class="btn btn-primary btn-block">Add Subject</a>
+      </div>
+</div>
+
+      <label for="topic_id">Topic:</label>
+      <div class = "form-row">
+        <div class="form-group col-8" >
+      <select id="topic_id" name ="topic_name" class="form-control" [(ngModel)]="topicid">
+        <option value="" select = "selected">Select Topic</option>
+        <option    *ngFor = "let topic of topics"   name= "topic" [value]="topic.topicId" ngDefaultControl >{{ topic.topicName }}</option>
+      </select>
+        </div>
+          <div class="col-2" *ngIf="isRole()">
+              <a href="topic" class="btn btn-primary btn-block">Add Topic</a>
+          </div>
+    </div>
+  </div>
+</div>
+    </fieldset>
+  <button type="submit" class="btn btn-primary">Submit For Review</button>
+
+  </form>
+</div>
+</body>
+</html>

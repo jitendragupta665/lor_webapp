@@ -1,0 +1,22 @@
+<div class="card text-center container">
+  <div class="card-header">
+    <h5 class="card-title">User Profile</h5>
+    </div>
+  <div class="card-body">
+    <div class="col">
+      <h6 class="card-title">UserName : {{user.username}}</h6>
+    <h6 class="card-title">Name : {{user.fullName}}</h6>
+    <h6 class="card-title">Current Role : {{user.role}}</h6>
+    <div class="input-group">
+   <select class="custom-select" id="inputGroupSelect04" [(ngModel)]="selected_role"aria-label="Example select with button addon">
+     <option value="">Choose Role</option>
+     <option value="Creator">Creator</option>
+     <option value="Reviewer">Reviewer</option>
+     <option value="Admin">Admin</option>
+   </select>
+   <div class="input-group-append">
+     <button class="btn btn btn-primary" (click)="onClick()" type="button">Update Role</button>
+   </div>
+ </div>
+  </div>
+</div>

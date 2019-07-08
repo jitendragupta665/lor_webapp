@@ -1,0 +1,45 @@
+<html>
+    <head>
+      <title>Task</title>
+    </head>
+    <body >
+<div class="container">
+<form #fieldForm = "ngForm" (ngSubmit)="onSubmit()"  method="post">
+<fieldset>
+  <label for="domain_id">Domain:</label>
+      <div class = "form-row">
+            <div class="form-group col-8" >
+                <select class="form-control" id="domain_id" name="domain" (change)="onChangeDomain($event.target.value)" >
+                  <option value="" select="selected">Select Domain</option>
+                <option *ngFor = "let domain of domains"  [value]="domain.domainId" name= "domain"   ngDefaultControl >{{domain.domainName}}</option>
+                </select>
+            </div>
+          </div>
+          <label for="field_id">Fields Corresponding to Selected Domain:</label>
+              <div class = "form-row">
+                    <div class="form-group col-8" >
+                        <select class="form-control" id="level_id" name="field_name" >
+                        <option value="" select="selected">Select Field</option>
+                        <option *ngFor = "let field of fields"  [value]="field.fieldId" name= "field"   ngDefaultControl >{{field.fieldName}}</option>
+                        </select>
+                    </div>
+                  </div>
+<label for="field_id">Field:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="field_id" name ="field" [(ngModel)]="fieldModel.fieldName" class="form-control" placeholder="Enter Field">
+</div>
+</div>
+<div class="row">
+<div class="col-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  <div class="col-2">
+  <a href="subject" class="btn btn-primary btn-block">Add Subject</a>
+  </div>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>

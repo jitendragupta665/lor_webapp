@@ -1,0 +1,51 @@
+<html>
+    <head>
+      <title>Task</title>
+    </head>
+    <body >
+<div class="container">
+<form #levelForm = "ngForm" (ngSubmit)="onSubmit()"  method="post">
+<fieldset>
+  <label for="taxo_id">Taxonomy:</label>
+      <div class = "form-row">
+            <div class="form-group col-8" >
+                <select class="form-control" id="taxo_id" name="taxonomy" (change)="onChangeTaxo($event.target.value)" >
+                  <option value="" select="selected">Select Taxonomy</option>
+                <option *ngFor = "let taxo of taxonomies"  [value]="taxo.taxoId" name= "taxo"   ngDefaultControl >{{taxo.taxoName}}</option>
+                </select>
+            </div>
+          </div>
+          <label for="level_id">Levels Corresponding to Bloom's Taxonomy:</label>
+              <div class = "form-row">
+                    <div class="form-group col-8" >
+                        <select class="form-control" id="level_id" name="level_name" >
+                        <option value="" select="selected">Select Level</option>
+                        <option *ngFor = "let level of levels"  [value]="level.levelId" name= "level"   ngDefaultControl >{{level.levelName}}</option>
+                        </select>
+                    </div>
+                  </div>
+<label for="level_id">Level:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="level_id" name ="level" [(ngModel)]="levelModel.levelName" class="form-control" placeholder="Enter Level">
+</div>
+</div>
+<label for="level_desc">Description:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="level_desc" name ="desc" [(ngModel)]="levelModel.levelDescription" class="form-control" placeholder="Enter Description">
+</div>
+</div>
+<div class="row">
+<div class="col-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  <div class="col-2">
+  <a href="verb" class="btn btn-primary btn-block">Add Verb</a>
+  </div>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>

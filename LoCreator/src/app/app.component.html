@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="">LoCreator</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink=""   routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [hidden]="!authenticated()" routerLink="learningobjecitve" routerLinkActive="active"   >Create Learning Objective</a>
+      </li>
+      <li class="nav-item" *ngIf="role()" [hidden]="!authenticated()" >
+        <a class="nav-link" routerLink="users"   routerLinkActive="active">Users</a>
+      </li>
+    </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item col" [hidden]="authenticated()" >
+          <a routerLink="login" class="nav-link btn btn-light btn-block"   routerLinkActive="active">Log In </a>
+        </li>
+        <li class="nav-item" [hidden]="authenticated()" >
+          <a routerLink="register" class="nav-link btn btn-outline-primary btn-block"  routerLinkActive="active">Sign Up </a>
+        </li>
+        <li [hidden]="!authenticated()" class="nav-item col">
+          <a class="nav-link btn btn-outline-primary btn-block" routerLink="profile"   routerLinkActive="active">{{cUsername}}</a>
+        </li>
+        <li [hidden]="!authenticated()" class="nav-item">
+          <button type="button" class="nav-link btn btn-light btn-block" (click)="logOut()">Log Out</button>
+        </li>
+      </ul>
+
+  </div>
+</nav>
+<br>
+<div>
+<router-outlet></router-outlet>
+</div>

@@ -1,0 +1,34 @@
+<html>
+    <head>
+      <title>Task</title>
+
+    </head>
+    <body >
+<div class="container"  >
+<form #taxoForm = "ngForm" (ngSubmit)="onSubmit()"  method="post">
+<fieldset>
+<label for="taxo_id">Taxonomy:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="taxo_id" name ="taxo" [(ngModel)]="taxoModel.taxoName" class="form-control" placeholder="Enter Taxonomy">
+</div>
+</div>
+<label for="taxo_desc">Description:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="taxo_desc" name ="desc" [(ngModel)]="taxoModel.taxodescription" class="form-control" placeholder="Enter Description">
+</div>
+</div>
+<div class="row">
+<div class="col-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  <div class="col-2">
+  <a href="level" class="btn btn-primary btn-block">Add Level</a>
+  </div>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>

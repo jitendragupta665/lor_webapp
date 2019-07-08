@@ -1,0 +1,56 @@
+<html>
+    <head>
+      <title>Task</title>
+    </head>
+    <body >
+<div class="container"  >
+<form #topicForm = "ngForm" (ngSubmit)="onSubmit()"  method="post">
+<fieldset>
+  <label for="domian_id">Domain:</label>
+      <div class = "form-row">
+            <div class="form-group col-8" >
+                <select class="form-control" id="domian_id" name="domain"  (change)="onChangeDomain($event.target.value)" >
+                  <option value="" select="selected">Select Domain</option>
+                <option *ngFor = "let domain of domains"  [value]="domain.domainId" name= "domain"   ngDefaultControl >{{domain.domainName}}</option>
+                </select>
+            </div>
+          </div>
+          <label for="level_id">Field Corresponding to Selected Domain:</label>
+              <div class = "form-row">
+                    <div class="form-group col-8" >
+                        <select class="form-control" id="field_id" name="field_name" (change)="onChangeField($event.target.value)">
+                        <option value="" select="selected">Select Field</option>
+                        <option *ngFor = "let field of fields"  [value]="field.fieldId" name= "field"   ngDefaultControl >{{field.fieldName}}</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <label for="domain_field_id">Subject Corresponding to Selected Field:</label>
+                      <div class = "form-row">
+                            <div class="form-group col-8" >
+                                <select class="form-control" id="domain_field_id" name="verb_name" >
+                                <option value = "" select="selected">Select Subject</option>
+                                <option *ngFor = "let subject of subjects"  [value]="subject.subjectId" name= "subject"   ngDefaultControl >{{subject.subjectName}}</option>
+                                </select>
+                            </div>
+                          </div>
+<label for="vsubject_id">Subject:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="subject_id" name ="subject" [(ngModel)]="subjectModel.subjectName" class="form-control" placeholder="Enter Subject">
+</div>
+</div>
+
+<div class="row">
+<div class="col-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+  <div class="col-2">
+  <a href="topic" class="btn btn-primary btn-block">Add Topic</a>
+  </div>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>

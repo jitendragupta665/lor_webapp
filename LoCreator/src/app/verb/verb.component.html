@@ -1,0 +1,50 @@
+<html>
+    <head>
+      <title>Task</title>
+    </head>
+    <body >
+<div class="container"  >
+<form #verbForm = "ngForm" (ngSubmit)="onSubmit()" method="post">
+<fieldset>
+  <label for="taxo_id">Taxonomy:</label>
+      <div class = "form-row">
+            <div class="form-group col-8" >
+                <select class="form-control" id="taxo_id" name="taxonomy"  (change)="onChangeTaxo($event.target.value)" >
+                  <option value="" select="selected">Select Taxonomy</option>
+                <option *ngFor = "let taxo of taxonomies"  [value]="taxo.taxoId" name= "taxo"   ngDefaultControl >{{taxo.taxoName}}</option>
+                </select>
+            </div>
+          </div>
+          <label for="level_id">Levels Corresponding to Bloom's Taxonomy:</label>
+              <div class = "form-row">
+                    <div class="form-group col-8" >
+                        <select class="form-control" id="level_id" name="level_name" (change)="onChangeLevel($event.target.value)">
+                        <option value="" select="selected">Select Level</option>
+                        <option *ngFor = "let level of levels"  [value]="level.levelId" name= "level"   ngDefaultControl >{{level.levelName}}</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <label for="verb_level_id">Verbs Corresponding to Level:</label>
+                      <div class = "form-row">
+                            <div class="form-group col-8" >
+                                <select class="form-control" id="verb_level_id" name="verb_name" >
+                                <option value = "" select="selected">Select Verb</option>
+                                <option *ngFor = "let verb of verbs"  [value]="verb.verbId" name= "verb"   ngDefaultControl >{{verb.verbName}}</option>
+                                </select>
+                            </div>
+                          </div>
+<label for="verb_id">Verb:</label>
+<div class = "form-row">
+<div class="form-group col-8">
+      <input type="text" id="verb_id" name ="verb" [(ngModel)]="verbModel.verbName" class="form-control" placeholder="Enter Verb">
+</div>
+</div>
+<div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</fieldset>
+</form>
+</div>
+</body>
+</html>
